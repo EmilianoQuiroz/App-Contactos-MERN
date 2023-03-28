@@ -3,9 +3,16 @@
  ** que se encuentran en app.js
  */
 
- const app = require('./app')// Esta es la logica para ejecutar el servidor
+ // Requerimos el modulo dotenv
+ require('dotenv').config()
 
- // Funcin asincrona para ejecutar el servidor
+// Esta es la logica para ejecutar el servidor
+ const app = require('./app')
+
+// Llamamos al archivo de la base de datos
+require('./database')
+
+ // Funcion asincrona para ejecutar el servidor
  async function main(){
     await app.listen(app.get('port'))
     //Mensaje por consola para indicar en donde esta corriendo nuestra aplicacion
